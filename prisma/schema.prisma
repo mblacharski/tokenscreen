@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+	provider = "prisma-client-js"
+}
+
+datasource db {
+	provider = "postgresql"
+	url      = env("APP_SQL_URL")
+}
+
+model Token {
+	id Int @id @default(autoincrement()) @map("token_id")
+	name String @map("token_name")
+	ticker String @map("token_ticker")
+	description String @map("token_description")
+
+	@@map("tokens")
+}
