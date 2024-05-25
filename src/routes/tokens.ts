@@ -1,72 +1,252 @@
-import express from 'express'
+import express, { Request } from 'express'
 import tokensManager from '../database/tokens/tokens-manager'
+import {PatchTokenBody, UpdateTokenBody} from '../interfaces/token.interface'
+import { Token } from '@prisma/client'
+import { sendDBResponse } from '../lib/api/api-helpers'
 const router = express.Router()
 
-function getIdFromString(idString: string) {
-    const id = Number(idString)
-    const valid = !Number.isNaN(id)
-
-    return valid ? id : null
+interface CreateTokenRequest extends Request {
+    body: Token
 }
 
+interface UpdateTokenRequest extends Request {
+    body: UpdateTokenBody
+}
+
+interface PatchTokenRequest extends Request {
+    body: PatchTokenBody
+}
+
+
 router.get('/', async (_req, res) => {
-    const allTokens = await tokensManager.getAll()
-    res.json(allTokens)
+    /*
+        #swagger.tags = ['Tokens']
+        #swagger.summary = "Get a list of all tokens available"
+        #swagger.responses[200] = {
+            description: "List of all tokens available",
+            content: {
+                "application/json": {
+                    schema: {
+                        type: "array",
+                        items: {
+                            $ref: "#/components/schemas/Token"
+                        }
+                    }
+                }
+            }
+        }
+        #swagger.responses[500] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+        
+    */
+    const response = await tokensManager.getAll()
+    sendDBResponse(response, res)
 })
 
 router.get('/:id', async (req, res) => {
-    try {
-        const id = getIdFromString(req.params.id)
-        if(id) {
-            const singleToken = await tokensManager.getSingle(id)
-            if(singleToken) {
-                res.json(singleToken)
-            } else {
-                res.status(404).json({
-                    error: 'Object not found'
-                })
+    /*
+        #swagger.tags = ['Tokens']
+        #swagger.summary = "Get single token by id (if available)"
+        #swagger.responses[200] = {
+            description: "Single token",
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/Token"
+                    }
+                }
             }
-        } else {
-            res.status(400).json({
-                error: 'Wrong `id` format'
-            })
         }
-
-    } catch (e) {
-        res.status(500).json({
-            // Message can be extended with e.message or some specific catches
-            error: 'Something went wrong on the server side'
-        })
-    }
+        #swagger.responses[400] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+        #swagger.responses[404] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+        #swagger.responses[500] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+    */
+    const response = await tokensManager.getSingle(req.params.id)
+    sendDBResponse(response, res)
 })
 
-router.post('/', async (req, res) => {
-    const added = await tokensManager.add(req.body)
-    if(added) {
-        res.status(201).json(added)
-    } else {
-        res.status(400).json({
-            error: 'Bad request'
-        })
-    }
+router.post('/', async (req: CreateTokenRequest, res) => {
+    /*
+        #swagger.tags = ['Tokens']
+        #swagger.summary = "Create new token"
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/CreateTokenRequest"
+                    }  
+                }
+            }
+        } 
+        #swagger.responses[201] = {
+            description: "Created token",
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/Token"
+                    }
+                }
+            }
+        }
+        #swagger.responses[400] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+    */
+    const response = await tokensManager.add(req.body)
+    sendDBResponse(response, res)
+})
+
+router.put('/:id', async (req: UpdateTokenRequest, res) => {
+    /*
+        #swagger.tags = ['Tokens']
+        #swagger.summary = "Update token (if existing) with full body"
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/UpdateTokenRequest"
+                    }  
+                }
+            }
+        } 
+        #swagger.responses[200] = {
+            description: "Updated token",
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/Token"
+                    }
+                }
+            }
+        }
+        #swagger.responses[400] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+    */
+    const response = await tokensManager.update(req.params.id, req.body)
+    sendDBResponse(response, res)
+})
+
+
+
+router.patch('/:id', async (req: PatchTokenRequest, res) => {
+    /*
+        #swagger.tags = ['Tokens']
+        #swagger.summary = "Update token (if existing) using partial data"
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/PatchTokenRequest"
+                    }  
+                }
+            }
+        } 
+        #swagger.responses[200] = {
+            description: "Updated token",
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/Token"
+                    }
+                }
+            }
+        }
+        #swagger.responses[400] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+    */
+    const response = await tokensManager.patch(req.params.id, req.body)
+    sendDBResponse(response, res)
 })
 
 router.delete('/:id', async (req, res) => {
-    const id = getIdFromString(req.params.id)
-    if(id) {
-        const removed = await tokensManager.remove(id)
-        if(removed) {
-            res.json(removed)
-        } else {
-            res.status(404).json({
-                error: 'Nothing to delete'
-            })
+    /*
+        #swagger.tags = ['Tokens']
+        #swagger.summary = "Delete token by id"
+        #swagger.responses[200] = {
+            description: "Deleted token",
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/Token"
+                    }
+                }
+            }
         }
-    } else {
-        res.status(400).json({
-            error: 'Wrong `id` format'
-        })
-    }
+        #swagger.responses[404] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+        #swagger.responses[400] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+    */
+    const response = await tokensManager.delete(req.params.id)
+    sendDBResponse(response, res)
 })
 
 export default router

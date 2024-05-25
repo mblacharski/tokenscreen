@@ -17,7 +17,7 @@ model Token {
 	id Int @id @default(autoincrement()) @map("token_id")
 	name String @map("token_name")
 	ticker String @map("token_ticker")
-	description String @map("token_description")
+	description String @map("token_description") @default("")
 
 	@@map("tokens")
 }
