@@ -21,9 +21,10 @@ dynamic and multifaceted nature of tokens in the cryptocurrency ecosystem.
 
 ## Features
 
-- Database in PostgreSQL
+- Database in PostgreSQL, schema and setup
 - Express.js API with all CRUD actions for tokens, returning proper statuses depending on context
 - Fully dockerized - setup is easily managed with single command
+- Adminer - simple SQL client that allows to browse the data directly in DB
 
 ## Getting Started
 
@@ -77,6 +78,7 @@ For the case of this project, all the values are set in .env file and the docker
 
 ## Usage
 
+### Server
 
 1. Run built container:
 
@@ -84,9 +86,9 @@ For the case of this project, all the values are set in .env file and the docker
 docker-compose up
 ```
 
-2. Visit `http://localhost:3000/api-docs` in your browser.
+2. Open [Swagger API docs](http://localhost:3000/api-docs) in your browser.
 
-3. Use swagger's built in features that allow to test the API.
+3. Use Swagger's built in features that allow to test the API.
 
 Alternative:
 
@@ -100,6 +102,14 @@ To stop the container, run the following command:
 ```shell
 docker-compose down
 ```
+
+### Adminer
+In order to check the database contents, open [Adminer's local instance](http://localhost:8080) in your browser and fill the data with following:
+
+- server: `database`
+- username: `tokens_root`
+- password: `some_very_secret_password`
+- database: `tokens_db`
 
 ## Testing
 
