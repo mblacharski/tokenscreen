@@ -1,4 +1,5 @@
 \connect tokens_db tokens_root;
+
 -- Create `tokens` table
 
 -- Lengths can be modified if needed
@@ -14,6 +15,5 @@ CREATE TABLE tokens (
     -- I guess this would be the token_id, because we shouldn't have many to one mapping in this case
     --      and that would minimize the database size
     token_ticker VARCHAR(40) NOT NULL UNIQUE,
-    -- Optional, empty string as default for null safety
     token_description VARCHAR(250) DEFAULT '' NOT NULL
 );

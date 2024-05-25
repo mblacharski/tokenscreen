@@ -10,6 +10,7 @@ services:
     environment:
       - APP_SQL_URL=${APP_SQL_URL}
       - APP_SERVER_PORT_INNER=${APP_SERVER_PORT_INNER}
+      - APP_SERVER_URL=${APP_SERVER_URL}
 
   # Setup PostgreSQL database container
   database:
