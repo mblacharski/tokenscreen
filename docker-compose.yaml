@@ -11,6 +11,8 @@ services:
       - APP_SQL_URL=${APP_SQL_URL}
       - APP_SERVER_PORT_INNER=${APP_SERVER_PORT_INNER}
       - APP_SERVER_URL=${APP_SERVER_URL}
+    depends_on:
+      - db
 
   # Setup PostgreSQL database container
   db:
