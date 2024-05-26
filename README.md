@@ -106,7 +106,7 @@ docker-compose down
 ### Adminer
 In order to check the database contents, open [Adminer's local instance](http://localhost:8080) in your browser and fill the data with following:
 
-- server: `database`
+- server: `db`
 - username: `tokens_root`
 - password: `some_very_secret_password`
 - database: `tokens_db`
@@ -118,3 +118,5 @@ In order to run the unit tests, run the following command:
 ```shell
 npm run test
 ```
+
+The tests are automatically triggered before the build process in docker-compose.

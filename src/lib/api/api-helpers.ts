@@ -20,7 +20,7 @@ export function createApiError(error: string, status: number = 500): DBActionRes
 export const CommonErrors: {[key: string]: DBActionResponse<null>} = {
     INTERNAL: createApiError('Internal server error', 500),
     BAD_REQUEST: createApiError('Bad request', 400),
-    WRONG_ID_FORMAT: createApiError('Wrong ID format', 400),
+    INVALID_ID: createApiError('Invalid ID', 400),
     MISSING_ID: createApiError('Missing ID', 400),
     MISSING_DATA: createApiError('Missing data', 400),
     INCOMPLETE_BODY: createApiError('Missing object properties', 400),
@@ -48,7 +48,7 @@ export function getIdOrError(idParam: string | number) {
     } 
     if(Number.isNaN(id)) {
         return {
-            idError: CommonErrors.WRONG_ID_FORMAT
+            idError: CommonErrors.INVALID_ID
         }
     }
     return {
