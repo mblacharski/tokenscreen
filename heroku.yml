@@ -1,0 +1,14 @@
+setup:
+  addons:
+    - plan: heroku-postgresql:hobby-dev
+
+build:
+  docker:
+    web: Dockerfile.web
+  config:
+    APP_SQL_URL: ${APP_SQL_URL}
+    APP_SERVER_PORT_INNER: ${APP_SERVER_PORT_INNER}
+    APP_SERVER_URL: ${APP_SERVER_URL}
+
+run:
+  web: sh -c "npm run deploy:docker-compose"
