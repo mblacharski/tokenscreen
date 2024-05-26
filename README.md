@@ -103,6 +103,12 @@ To stop the container, run the following command:
 docker-compose down
 ```
 
+And to remove the container, run:
+
+```shell
+docker-compose rm
+```
+
 ### Adminer
 In order to check the database contents, open [Adminer's local instance](http://localhost:8080) in your browser and fill the data with following:
 
@@ -110,6 +116,8 @@ In order to check the database contents, open [Adminer's local instance](http://
 - username: `tokens_root`
 - password: `some_very_secret_password`
 - database: `tokens_db`
+
+Note: container must be up.
 
 ## Testing
 
@@ -119,4 +127,4 @@ In order to run the unit tests, run the following command:
 npm run test
 ```
 
-The tests are automatically triggered before the build process in docker-compose.
+Note: The tests are automatically triggered before the build process in docker-compose.
