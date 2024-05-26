@@ -2,6 +2,11 @@
 
 This repository contains source files for Token Screen interview.
 
+### Project stack:
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=docker,nodejs,expressjs,postgresql,prisma,typescript,jest,github&perline=4" />
+</p>
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -118,6 +123,7 @@ In order to check the database contents, open [Adminer's local instance](http://
 - database: `tokens_db`
 
 Note: container must be up.
+
 
 ## Testing
 
