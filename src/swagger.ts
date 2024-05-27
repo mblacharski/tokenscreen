@@ -12,7 +12,7 @@ const doc = {
     },
     servers: [
         {
-            url: `${process.env.APP_SERVER_URL}:${process.env.APP_SERVER_PORT_INNER}`,
+            url: `${process.env.APP_SERVER_URL}:${process.env.PORT || process.env.APP_SERVER_PORT_INNER}`,
             description: 'Main API server'
         },
     ],
