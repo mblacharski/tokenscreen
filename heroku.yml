@@ -4,4 +4,4 @@ build:
     - heroku/nodejs
 
 run:
-  web: npm run start
+  web: npm start
