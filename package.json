@@ -7,8 +7,8 @@
   "scripts": {
     "test": "npx jest",
     "start": "node dist/app.js",
-    "build": "npm install && npx prisma generate && ts-node src/swagger.ts && npx tsc",
-    "deploy:docker-compose": "npm run test && npm run build && npm start"
+    "build": "npx prisma generate && ts-node src/swagger.ts && npx tsc",
+    "deploy:docker-compose": "npx prisma generate && npm run test && npm run build && npm start"
   },
   "keywords": [],
   "author": "Marcin Blacharski",
