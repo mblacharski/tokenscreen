@@ -67,8 +67,11 @@ class TokenManager {
             return CommonErrors.MISSING_DATA
         }
         try {
+            const {name, ticker, description} = token
             const created = await this.#db.token.create({
-                data: token
+                data: {
+                    name, ticker, description
+                }
             })
             if(created) {
                 return createApiSuccess(created, 201)
