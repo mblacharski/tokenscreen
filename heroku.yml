@@ -4,4 +4,4 @@ build:
     - heroku/nodejs
 
 run:
-  web: npm start
+  web: node dist/app.js
