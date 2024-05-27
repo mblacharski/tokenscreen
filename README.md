@@ -91,7 +91,7 @@ For the case of this project, all the values are set in .env file and the docker
 docker-compose up
 ```
 
-2. Open [Swagger API docs](http://localhost:3000/api-docs) in your browser.
+2. Open [Swagger API docs](http://localhost:8080/api-docs) in your browser.
 
 3. Use Swagger's built in features that allow to test the API.
 
@@ -115,7 +115,7 @@ docker-compose rm
 ```
 
 ### Adminer
-In order to check the database contents, open [Adminer's local instance](http://localhost:8080) in your browser and fill the data with following:
+In order to check the database contents, open [Adminer's local instance](http://localhost:8282) in your browser and fill the data with following:
 
 - server: `db`
 - username: `tokens_root`

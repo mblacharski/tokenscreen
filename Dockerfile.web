@@ -13,8 +13,7 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Expose the port your app runs on
-EXPOSE ${APP_SERVER_PORT_OUTER}
+EXPOSE ${APP_SERVER_PORT_INNER}
 
 # Command to run the application
 CMD ["sh", "-c", "npm run deploy:docker-compose"]
