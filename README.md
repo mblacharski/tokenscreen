@@ -113,7 +113,7 @@ Alternative:
 
 1. Open Postman or any other REST client.
 
-2. Use the endpoints according to Swagger documentation.
+2. Use the endpoints according to [Swagger documentation](http://localhost:8080/api-docs).
 
 
 To stop the container, run the following command:
