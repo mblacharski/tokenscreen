@@ -42,12 +42,17 @@ git clone https://github.com/mblacharski/tokenscreen.git
 
 ### Prerequisites
 
-To run this project, you need to have Docker and Docker Compose installed on your system.
+To run this project locally, you need to have Docker and Docker Compose installed on your system.
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
 These tools will be used to containerize and manage the project environment.
+
+### Current deployment status
+
+This app is deployed on Heroku as the Docker container.
+You can visit [Application Swagger](https://tokenscreen-60baba01210f.herokuapp.com/api-docs) and test it from there.
 
 ### Installation
 
