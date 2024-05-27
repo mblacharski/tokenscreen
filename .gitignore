@@ -5,3 +5,5 @@ dist
 
 #auto-generated file on build process
 swagger-output.json
+
+.env.heroku

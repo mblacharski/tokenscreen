@@ -5,7 +5,10 @@ import dotenv from 'dotenv';
 dotenv.config()
 
 const app = express()
-const port = process.env.APP_SERVER_PORT_INNER
+// PORT - for Heroku
+// APP_SERVER_PORT_INNER - for Docker-Compose
+// 80 - default
+const port = process.env.PORT || process.env.APP_SERVER_PORT_INNER || 80
 
 initializeRoutes(app)
 

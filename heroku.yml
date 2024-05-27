@@ -1,0 +1,12 @@
+build:
+  # Use the Node.js buildpack
+  buildpacks:
+    - heroku/nodejs
+
+# Configuration for the environment variables
+env:
+  APP_VERSION: "1.0.0"
+  APP_SERVER_URL: "http://localhost"
+
+run:
+  web: npm run start
