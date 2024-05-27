@@ -7,6 +7,15 @@ This repository contains source files for Token Screen interview.
   <img src="https://skillicons.dev/icons?i=docker,nodejs,expressjs,postgresql,prisma,typescript,jest,heroku&perline=4" />
 </p>
 
+- Docker
+- Node.js
+- Express.js
+- PostgreSQL
+- Prisma ORM
+- TypeScript
+- Jest
+- Heroku
+
 ## Table of Contents
 
 - [Introduction](#introduction)
