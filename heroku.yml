@@ -1,9 +1,6 @@
-build:
-  # Use the Node.js buildpack
-  buildpacks:
-    - heroku/nodejs
-  docker:
-    web: Dockerfile.web
+# build:
+#   docker:
+#     web: Dockerfile.web
 
 run:
   web: npm start
