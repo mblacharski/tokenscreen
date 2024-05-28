@@ -7,14 +7,14 @@ This repository contains source files for Token Screen interview.
   <img src="https://skillicons.dev/icons?i=docker,nodejs,expressjs,postgresql,prisma,typescript,jest,heroku&perline=4" />
 </p>
 
-- Docker
-- Node.js
-- Express.js
-- PostgreSQL
-- Prisma ORM
-- TypeScript
-- Jest
-- Heroku
+- **Docker**: Containerization for consistent environments.
+- **Node.js**: JavaScript runtime for server-side code.
+- **Express.js**: Framework for building RESTful APIs.
+- **PostgreSQL**: Relational database for storing token data.
+- **Prisma ORM**: Simplifies database interactions.
+- **TypeScript**: Adds type safety to JavaScript.
+- **Jest** and **Supertest**: Testing frameworks.
+- **Heroku**: Cloud platform for deployment.
 
 ## Table of Contents
 
