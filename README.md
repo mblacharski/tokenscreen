@@ -46,10 +46,10 @@ and decentralized finance (DeFi) operations.
 
 ## Features
 
-- Database in PostgreSQL, schema and setup
-- Express.js API with all CRUD actions for tokens, returning proper statuses depending on context
-- Fully dockerized - setup is easily managed with single command
-- Adminer - simple SQL client that allows to browse the data directly in DB
+- PostgreSQL Database: Schema and setup for storing tokens.
+- Express.js API: Full CRUD actions for tokens with appropriate status responses.
+- Dockerized Setup: Easily managed with a single command.
+- Adminer: Simple SQL client for direct database access.
 
 ## Getting Started
 
