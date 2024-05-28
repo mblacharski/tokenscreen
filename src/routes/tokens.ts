@@ -129,6 +129,15 @@ router.post('/', async (req: CreateTokenRequest, res) => {
                 }
             }
         }
+        #swagger.responses[500] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
     */
     const response = await tokensManager.add(req.body)
     sendDBResponse(response, res)
@@ -159,6 +168,15 @@ router.put('/:id', async (req: UpdateTokenRequest, res) => {
             }
         }
         #swagger.responses[400] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+        #swagger.responses[500] = {
             content: {
                 "application/json": {
                     schema: {
@@ -199,6 +217,15 @@ router.patch('/:id', async (req: PatchTokenRequest, res) => {
             }
         }
         #swagger.responses[400] = {
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/APIError"
+                    }
+                }
+            }
+        }
+        #swagger.responses[500] = {
             content: {
                 "application/json": {
                     schema: {
