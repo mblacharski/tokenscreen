@@ -25,7 +25,9 @@ This repository contains source files for Token Screen interview.
   - [Installation](#installation)
   - [Configuration](#configuration)
 - [Usage](#usage)
+  - [API Endpoints](#api-endpoints)
 - [Testing](#testing)
+- [Considerations](#considerations)
 
 ## Introduction
 
