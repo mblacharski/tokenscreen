@@ -142,7 +142,7 @@ docker-compose rm
 All the payloads and statuses can be checked in [Local Swagger documentation](http://localhost:8080/api-docs) or [Deployed Swagger documentation](https://tokenscreen-60baba01210f.herokuapp.com/api-docs). Here's short overview:
 
 - `GET /tokens` - returns list of all available tokens (or `500` status with error message if server fails)
-- `GET /tokens/{id}` - returns token with given `id` or `404` status code with error message
+- `GET /tokens/{id}` - returns token with given `id` or `404` status code with error message if the object is not found
 - `POST /tokens` - adds token to the database and returns `201` status code on success with full created object data in body or `400` status with error message in case of bad request, or `500` status with error message in case of server error. `id` value is ignored on `POST` action as it is auto-incremental
 - `PUT /tokens/{id}` - updates the token data with given `id` using full token body (except the `id`). This is used to fully update the token. Returns `200` on success with updated object data in body, `404` status with error message if object is not found, `400` status with error message in case of bad request or `500` status with error message in case of server error
 - `PATCH /tokens/{id}` - updates the token data with given `id` using partial token body. This is used to change single value of the token. Returns `200` on success with updated object data in body, `404` status with error message if object is not found, `400` status with error message in case of bad request or `500` status with error message in case of server error
